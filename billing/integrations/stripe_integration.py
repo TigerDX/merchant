@@ -13,7 +13,7 @@ class StripeIntegration(Integration):
         merchant_settings = getattr(settings, "MERCHANT_SETTINGS")
         if not merchant_settings or not merchant_settings.get("stripe"):
             raise IntegrationNotConfigured("The '%s' integration is not correctly "
-                                       "configured." % self.display_name)
+                                           "configured." % self.display_name)
         stripe_settings = merchant_settings["stripe"]
         self.gateway = get_gateway("stripe")
         self.publishable_key = stripe_settings['PUBLISHABLE_KEY']
@@ -31,7 +31,7 @@ class StripeIntegration(Integration):
         raise NotImplementedError
 
     def get_urls(self):
-        urlpatterns = patterns('',
-           url('^stripe_token/$', self.transaction, name="stripe_transaction")
-        )
+        urlpatterns = [
+            url('^stripe_token/$', self.transaction, name="stripe_transaction")
+        ]
         return urlpatterns
