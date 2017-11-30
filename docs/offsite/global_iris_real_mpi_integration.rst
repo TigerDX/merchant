@@ -228,10 +228,10 @@ In some_project/views.py::
 In the urls.py::
 
 
-  urlpatterns += patterns('',
-    (r'^pay/', 'some_project.views.pay'),
-    (r'^success/', 'some_project.views.success'),
-    (r'^3ds/', 'some_project.views.handle_3ds'),
-  )
+  urlpatterns += [
+    url(r'^pay/', 'some_project.views.pay'),
+    url(r'^success/', 'some_project.views.success'),
+    url(r'^3ds/', 'some_project.views.handle_3ds'),
+  ]
 
 

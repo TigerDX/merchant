@@ -29,9 +29,9 @@ Here are the methods and attributes implemented on the ``BraintreePaymentsIntegr
 
      braintree = get_integration("braintree_payments")
 
-     urlpatterns += patterns('',
-        (r'^braintree/', include(braintree.urls)),
-     )
+     urlpatterns += [
+        url(r'^braintree/', include(braintree.urls)),
+     ]
 
 * ``braintree_notify_handler(self, request)``: The view method that handles the
   confirmation of the transaction after successful redirection from Braintree.
@@ -76,9 +76,9 @@ Example:
    In the urls.py::
 
       braintree_obj = get_integration("braintree_payments")
-      urlpatterns += patterns('',
-         (r'^braintree/', include(braintree.urls)),
-      )
+      urlpatterns += [
+         url(r'^braintree/', include(braintree.urls)),
+      ]
       
    In the template::
 
